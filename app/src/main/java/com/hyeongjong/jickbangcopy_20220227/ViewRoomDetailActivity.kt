@@ -3,6 +3,7 @@ package com.hyeongjong.jickbangcopy_20220227
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.hyeongjong.jickbangcopy_20220227.datas.RoomData
+import kotlinx.android.synthetic.main.activity_view_room_detail.*
 
 class ViewRoomDetailActivity : AppCompatActivity() {
 
@@ -13,6 +14,11 @@ class ViewRoomDetailActivity : AppCompatActivity() {
         val roomData = intent.getSerializableExtra("room") as RoomData
 
 
+        txtPrice.text = roomData.getFormattedPrice()
+        txtDescription.text = roomData.description
+
+        txtAddress.text = roomData.address
+        txtFloor.text = roomData.getFormattedFloor()
 
     }
 }
