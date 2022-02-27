@@ -36,9 +36,12 @@ class RoomData(
             return formattedPrice
         }
         else{
-//            26500 => 2억 6,500원
-            val formattedPrice = NumberFormat.getNumberInstance(Locale.KOREA).format(price)
-            return formattedPrice
+//            26500 / 10000 = 2 => "2억 6,500원"
+            val uk = price / 10000
+//            26500 / 10000 = 2 => "2억 6,500원"
+            val rest = price % 10000
+            val formattedRest = NumberFormat.getNumberInstance(Locale.KOREA).format(rest)
+            return "${uk}억 ${formattedRest}"
         }
     }
 
