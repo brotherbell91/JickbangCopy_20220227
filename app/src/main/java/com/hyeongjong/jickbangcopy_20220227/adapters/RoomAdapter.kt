@@ -31,6 +31,9 @@ class RoomAdapter(
         val txtAddressFloor = row.findViewById<TextView>(R.id.txtAddressFloor)
         val txtDescription = row.findViewById<TextView>(R.id.txtDescription)
 
+        txtDescription.text = data.description
+        txtAddressFloor.text = data.address
+
         return row
     }
 }
