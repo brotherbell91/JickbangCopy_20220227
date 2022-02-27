@@ -1,5 +1,8 @@
 package com.hyeongjong.jickbangcopy_20220227.datas
 
+import java.text.NumberFormat
+import java.util.*
+
 //하나의 방 -> 가격, 행정구역, 층수, 설명문구 멤버변수로.
 
 class RoomData(
@@ -26,5 +29,17 @@ class RoomData(
     }
 
 //    가격값 => "8,500", "2억3,500" 형태로 가공
+    fun getFormattedPrice() : String {
+        if (price < 10000) {
+//            8000 => "8,500"
+            val formattedPrice = NumberFormat.getNumberInstance(Locale.KOREA).format(price)
+            return formattedPrice
+        }
+        else{
+//            26500 => 2억 6,500원
+            val formattedPrice = NumberFormat.getNumberInstance(Locale.KOREA).format(price)
+            return formattedPrice
+        }
+    }
 
 }
